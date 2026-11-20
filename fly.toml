@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for kerala-private-bus-timing-api on 2026-11-20T21:25:18Z
+#
+# See https://docs.fly.io/reference/configuration for information about how to use this file.
+#
+
+app = 'kerala-private-bus-timing-api'
+primary_region = 'syd'
+console_command = '/rails/bin/rails console'
+
+[build]
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
